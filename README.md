@@ -1,2 +1,6 @@
 # Organizing-a-project-using-cloud-providers
-netology
+
+Netology
+
+Author: S.Shirobokov
+Year: 2026

@@ -33,7 +33,7 @@ resource "yandex_iam_service_account" "iam-sa" {
 
 resource "yandex_resourcemanager_folder_iam_member" "editor" {
   folder_id = var.folder_id
-  role      = "compute.editor"
+  role      = "compute.admin"
   member    = "serviceAccount:${yandex_iam_service_account.iam-sa.id}"
 
   depends_on = [
@@ -43,7 +43,7 @@ resource "yandex_resourcemanager_folder_iam_member" "editor" {
 
 resource "yandex_resourcemanager_folder_iam_member" "load-balancer-editor" {
   folder_id = var.folder_id
-  role      = "load-balancer.editor"
+  role      = "load-balancer.admin"
   member    = "serviceAccount:${yandex_iam_service_account.iam-sa.id}"
 
   depends_on = [

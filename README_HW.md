@@ -9,13 +9,18 @@
 ![kitten](kitten.png)
 
 2. Создать группу ВМ в public подсети фиксированного размера с шаблоном LAMP и веб-страницей, содержащей ссылку на картинку из бакета:
+   Помогло внимательное чтение документации, раздел вопросов и ответов и добавление прав сервисному аккаунту:
+
+![output](output.png)
+
+![instance_group](instance_group.png)
+
+![compute_instance](compute_instance.png)
+
+![web-index](web-index.png)
 
 3. Подключить группу к сетевому балансировщику:
 
-Как выполнить в условиях дедлайна? Запустил на создание группы и балансировщика, уже третья попытка. Terraform вылетает через 30 минут ожидания, а группа так и не создана. Прикладываю соответственно скриншот, не смог дождаться создания группы. Код также приложен.
+![load_balancer](load_balancer.png)
 
-![vm_group_instance](vm_group_instance.png)
-
-`terraform validate` проходит без проблем:
-
-![terraform_validate](terraform_validate.png)
+![target-group-lb](target-group-lb.png)

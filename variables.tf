@@ -10,8 +10,8 @@ variable "folder_id" {
 }
 
 variable "default_zone" {
-  type    = string
-  default = "ru-central1-d"
+  type        = string
+  default     = "ru-central1-d"
   description = "Объявляем дефолтную зону сети"
 }
 
@@ -48,9 +48,9 @@ variable "default_cidr_privat" {
 }
 
 # Дефолтный образ ОС
-variable "default_image" {
+variable "default_image_id" {
   type    = string
-  default = "ubuntu-2204-lts"
+  default = "fd827b91d99psvq5fjit"
 }
 
 # Дефолтный пользователь
@@ -60,25 +60,70 @@ variable "ssh_user" {
   description = "пользователь на вм"
 }
 
+variable "vm-service-accaunt" {
+  type = string
+  default = "iam-sa"
+}
+
 variable "vm" {
   type = map(object({
-    name = string,
-    cores = number,
-    memory = number,
+    name          = string,
+    cores         = number,
+    memory        = number,
     core_fraction = number,
-    hdd_size = number,
-    hdd_type = string,
-    preemptible = bool,
+    hdd_size      = number,
+    hdd_type      = string,
+    preemptible   = bool,
   }))
   default = {
     default = {
-      name = "vm-public",
-      cores = 2,
-      memory = 2,
+      name          = "vm-public",
+      cores         = 2,
+      memory        = 4,
       core_fraction = 20,
-      hdd_size = 10,
-      hdd_type = "network-hdd",
-      preemptible = true,
+      hdd_size      = 20,
+      hdd_type      = "network-hdd",
+      preemptible   = true,
     }
   }
+}
+
+variable "http_options" {
+  default = {
+    port = 80
+    path = "/"
+  }
+}
+
+variable "target_group_name" {
+  default = "target-group"
+}
+
+variable "target_group_description" {
+  default = "Целевая группа Network Load Balancer"
+}
+
+variable "service-account-s3" {
+  type        = string
+  default     = "s3-sa"
+  description = "название сервисного аккаунта для управления s3"
+}
+
+
+
+variable "bucket-name" {
+  type        = string
+  default     = "shirobokov-s3-bucket"
+  description = "название объектного хранилища"
+}
+
+variable "s3-editor" {
+  type        = string
+  default     = "storage.editor"
+  description = "роль СА s3"
+}
+
+variable "s3-object-key" {
+  type = string
+  default = "kitten"
 }

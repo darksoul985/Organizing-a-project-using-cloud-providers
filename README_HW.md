@@ -1,26 +1,15 @@
 Задание 1. Yandex Cloud
 
-Что нужно сделать
+Ресурсы созданы:
 
-1. Создать бакет Object Storage и разместить в нём файл с картинкой:
+![apply](apply.png)
 
-Бакет создани и доступен из интернета:
+Доступ к бакету ограничен:
 
-![kitten](kitten.png)
+![encripted](encripted.png)
 
-2. Создать группу ВМ в public подсети фиксированного размера с шаблоном LAMP и веб-страницей, содержащей ссылку на картинку из бакета:
-   Помогло внимательное чтение документации, раздел вопросов и ответов и добавление прав сервисному аккаунту:
+Создать статическую страницу в Object Storage и применить сертификат HTTPS:
 
-![output](output.png)
+![https](https.png)
 
-![instance_group](instance_group.png)
-
-![compute_instance](compute_instance.png)
-
-![web-index](web-index.png)
-
-3. Подключить группу к сетевому балансировщику:
-
-![load_balancer](load_balancer.png)
-
-![target-group-lb](target-group-lb.png)
+![https2](https2.png)
